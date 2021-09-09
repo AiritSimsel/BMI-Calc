@@ -11,19 +11,20 @@ app.post('/', function(request, response) {
     let kaal = Number(request.body.kaal);
     let pikkus = Number(request.body.pikkus)/100;
     let result = kaal/(pikkus*pikkus);
-    if (result<19)
+
+    if (result < 19)
     {
         response.send("Oled alakaalus. Sinu kehamassiindeks on " + result);
     }
-    if (result >= 19 && result <= 24,9)
+    else if (result >= 19 && result <= 24.9)
     {
         response.send("Oled normaalkaalus. Sinu kehamassiindeks on " + result);
     }
-    if (result >= 25 && result <= 29,9)
+    else if (result >= 25 && result <= 29.9)
     {
         response.send("Oled ülekaalus. Sinu kehamassiindeks on " + result);
     }
-    if(result > 30)
+    else //(result > 30)
     {
         response.send("Oled rasvunud. Sinu kehamassiindeks on " + result);
     }
